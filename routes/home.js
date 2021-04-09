@@ -14,6 +14,16 @@ router.get("/", (req, res) => {
     res.render("home")
 })
 
+router.get("/ss", (req, res) => {
+    res.render("ss")
+})
+
+router.get("/ss/dk", (req, res) => {
+    res.render("dk")
+})
+
+
+
 ///////////////////////////////
 // Export Router
 ////////////////////////////////
