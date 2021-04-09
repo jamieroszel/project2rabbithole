@@ -28,6 +28,11 @@ router.get("/contribute", (req, res) => {
     res.render("contribute")
 })
 
+// About Router
+router.get("/about", (req, res) => {
+    res.render("about")
+})
+
 
 
 
