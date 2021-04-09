@@ -18,9 +18,17 @@ router.get("/ss", (req, res) => {
     res.render("ss")
 })
 
+// Dunning Kruger Route
 router.get("/ss/dk", (req, res) => {
     res.render("dk")
 })
+
+// Contribute Router
+router.get("/contribute", (req, res) => {
+    res.render("contribute")
+})
+
+
 
 
 
