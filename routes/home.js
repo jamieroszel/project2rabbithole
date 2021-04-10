@@ -25,9 +25,9 @@ router.get("/ss/dk", (req, res) => {
     res.render("dk")
 })
 
-// Contribute Router
-router.get("/contribute", (req, res) => {
-    res.render("contribute")
+// Login Router
+router.get("/login", (req, res) => {
+    res.render("login")
 })
 
 // Environment Router
