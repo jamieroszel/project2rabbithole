@@ -2,37 +2,17 @@
 // Import Router
 ////////////////////////////////
 const router = require("express").Router()
-
+const bcrypt = require("bcryptjs");
+const User = require("../models/user");
+const AuthRouter = require("./AuthRouter")
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////
+router.use("/auth", AuthRouter)
 
 ///////////////////////////////
 // Auth-Related Routes
 ////////////////////////////////
-
-// Signup Routes
-router.get("/auth/signup", (req, res) => {
-    res.send("signup get")
-  })
-  
-  router.post("/auth/signup", (req, res) => {
-    res.send("signup post")
-  })
-  
-  //Login ROUTES
-  router.get("/auth/login", (req, res) => {
-    res.send("login get")
-  })
-  
-  router.post("/auth/login", (req, res) => {
-    res.send("login post")
-  })
-  
-  //Logout Route
-  router.get("/auth/logout", (req, res) => {
-    res.send("logout")
-  })
 
 ///////////////////////////////
 // Router Routes
@@ -50,9 +30,14 @@ router.get("/ss/dk", (req, res) => {
     res.render("dk")
 })
 
-// Login Router
-router.get("/login", (req, res) => {
-    res.render("login")
+// Login Get Route
+router.get("/auth", (req, res) => {
+    res.render("auth")
+})
+
+// Signup Get Route
+router.get("/auth", (req, res) => {
+    res.render("auth")
 })
 
 // Environment Router

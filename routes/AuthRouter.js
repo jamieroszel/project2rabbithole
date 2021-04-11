@@ -1,0 +1,31 @@
+///////////////////////////////
+// Import Router
+////////////////////////////////
+const router = require("express").Router()
+const AuthController = require("../controllers/auth")
+///////////////////////////////
+// Router Specific Middleware
+////////////////////////////////
+
+///////////////////////////////
+// Auth-Related Routes
+////////////////////////////////
+
+///////////////////////////////
+// Router Routes
+////////////////////////////////
+// Create Page
+router.get("/create", AuthController.getCreate)
+
+// Create Submit
+router.post("/create", AuthController.createSubmit)
+
+// Login Page
+router.get("/login", AuthController.getLogin)
+///////////////////////////////
+
+// Login Submit
+router.post('/login', AuthController.loginSubmit)
+// Export Router
+////////////////////////////////
+module.exports = router
