@@ -1,7 +1,7 @@
 # Project Name
 
 - **Author:** Jamie Roszel
-- **Link to Live Site:** fdfadadfadfsdfadfadf
+- **Link to Live Site:** 
 
 
 ## Project Summary
@@ -9,6 +9,10 @@
 
 
 ## Technology Used
+* Express.js
+* Node.js
+* HTML
+* Bootstrap 5
 
 
 ## Models
