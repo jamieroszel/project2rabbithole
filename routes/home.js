@@ -8,6 +8,33 @@ const router = require("express").Router()
 ////////////////////////////////
 
 ///////////////////////////////
+// Auth-Related Routes
+////////////////////////////////
+
+// Signup Routes
+router.get("/auth/signup", (req, res) => {
+    res.send("signup get")
+  })
+  
+  router.post("/auth/signup", (req, res) => {
+    res.send("signup post")
+  })
+  
+  //Login ROUTES
+  router.get("/auth/login", (req, res) => {
+    res.send("login get")
+  })
+  
+  router.post("/auth/login", (req, res) => {
+    res.send("login post")
+  })
+  
+  //Logout Route
+  router.get("/auth/logout", (req, res) => {
+    res.send("logout")
+  })
+
+///////////////////////////////
 // Router Routes
 ////////////////////////////////
 router.get("/", (req, res) => {
@@ -17,8 +44,6 @@ router.get("/", (req, res) => {
 router.get("/about", (req, res) => {
     res.render("about")
 })
-
-
 
 // Dunning Kruger Route
 router.get("/ss/dk", (req, res) => {
