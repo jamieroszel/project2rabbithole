@@ -13,6 +13,10 @@ const createSubmit = async (req, res) => {
     res.redirect("/auth/login")
 }
 
+// const createSubmit = (req, res)=>{
+//     res.json(req.body)
+// }
+
 const getLogin = (req, res) => {
     res.render("auth/login")
 }
