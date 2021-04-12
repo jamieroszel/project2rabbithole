@@ -21,4 +21,4 @@ const UserSchema = new Schema(
 const User = model("User", UserSchema)
 
 // Export the User Model
-module.exports = User
+module.exports = User;
