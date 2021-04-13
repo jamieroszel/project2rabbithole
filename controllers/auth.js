@@ -47,7 +47,7 @@ const loginSubmit = async (req, res) => {
 
 const logout = (req, res) => {
     req.session.user = undefined
-    res.json({message: "You have logged out."})
+    // res.json({message: "You have logged out."})
     res.redirect('/')
 }
 

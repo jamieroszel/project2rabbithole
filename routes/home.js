@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 router.get("/about", (req, res) => {
     res.render("about")
 })
-// About
+// Dashboard
 router.get("/dashboard", (req, res) => {
     res.render("dashboard")
 })
