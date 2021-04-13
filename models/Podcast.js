@@ -3,12 +3,12 @@ const { Schema, model } = require("../db/connection.js")
 
 // The Podcast Schema
 const PodcastSchema = new Schema({
-    user: { type: Schema.Types.ObjectId, ref: "User"},
-    Discipline: { type: String, required: true },
-    URL: { type: String, required: true },
-    Show: { type: String, required: true },
-    Episode: { type: Integer},
-    Title: { type: String},
+    discipline: { type: String, required: true },
+    topic: {type: String, required: true}; //I don't have any idea how to do this!
+    url: { type: String, required: true },
+    showTitle: { type: String, required: true },
+    episodeNumber: { type: Integer},
+    episodeTitle: { type: String},
   },
   { timestamps: true }
 )
