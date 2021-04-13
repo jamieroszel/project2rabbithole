@@ -12,7 +12,7 @@ const AuthController = require("../controllers/auth.js")
 // Router Routes
 ////////////////////////////////
 
-// CREATE PAGE
+// Sign Up
 router.get("/create", AuthController.getCreate)
 
 // CREATE SUBMIT

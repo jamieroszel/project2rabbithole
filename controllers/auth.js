@@ -5,6 +5,7 @@ const getCreate = (req, res) => {
     res.render("auth/create")
 }
 
+// User Sign Up
 const createSubmit = async (req, res) => {
     const salt = await bcrypt.genSalt(10)
     req.body.password = await bcrypt.hash(req.body.password, salt)
@@ -23,26 +24,26 @@ const getLogin = (req, res) => {
 
 const loginSubmit = async (req, res) => {
     try {
-        console.count()
-        const user = await User.findOne({username: req.body.username})
-        if (user){
-            console.count()
-            console.log(user)
-            const result = await bcrypt.compare(req.body.password, user.password)
-            if (result){
-                console.count()
-                req.session.user = user.username
-                res.json({message: "you are logged in"})
-            } else {
-                res.status(400).json({error: "Password is wrong"}) 
-            }
+        // First Stop, does the user exist
+        const user = await User.findOne({ username: req.body.username });
+        if (user) {
+          const result = await bcrypt.compare(req.body.password, user.password);
+          if (result) {
+            req.session.user = {
+              username: user.username,
+              id: user._id,
+            };
+            res.redirect("/")
+          } else {
+            res.status(400).json({ error: "Password Does Not Match" });
+          }
         } else {
-            res.status(400).json({error: "No User by That Name"})
+          res.status(400).json({ error: "User Does Not Exist" });
         }
-    } catch(error){
-        res.json(error)
-    }
-}
+      } catch (error) {
+        res.status(400).json(error);
+      }
+    };
 
 const logout = (req, res) => {
     req.session.user = undefined

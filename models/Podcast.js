@@ -17,4 +17,4 @@ const PodcastSchema = new Schema({
 const Podcast = model("Podcast", PodcastSchema)
 
 // Export the User Model
-module.exports = Dream;
+module.exports = Podcast;
