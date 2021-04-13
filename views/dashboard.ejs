@@ -9,8 +9,8 @@
         <%- include("partials/header") %>
         <main>
             <!--Signup Form-->
-            <div class="container my-3">
-                <div class="signup bg-info p-3 mt-3">
+            <div class="container mb-5">
+                <div class="signup bg-info p-1">
                     <h2 class="mt-5">Not signed up yet?</h2>
                     <p>Register below.</p>
                     <form action="/auth/create" method="post" class="m-5">
@@ -45,10 +45,10 @@
                     </div>
             </div>
         <!--Contribute Form-->
-        <%- include("partials/contribute") %> 
+        <div class="container m-5"><%- include("partials/contribute") %></div> 
             
         </main>
-        <!-- THE HEAD TAG PARTIAL -->
+        <!-- Footer PARTIAL -->
         <%- include("partials/footer") %>
     </body>
 </html>
