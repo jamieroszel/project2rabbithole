@@ -11,13 +11,20 @@ router.use("/auth", AuthRouter)
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
+// Home
 router.get("/", (req, res) => {
     res.render("home")
 })
 
+// About
 router.get("/about", (req, res) => {
     res.render("about")
 })
+// About
+router.get("/dashboard", (req, res) => {
+    res.render("dashboard")
+})
+
 
 // Dunning Kruger Route
 router.get("/ss/dk", (req, res) => {

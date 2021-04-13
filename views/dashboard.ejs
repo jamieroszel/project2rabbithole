@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <!-- THE HEAD TAG PARTIAL -->
+    <%- include("partials/head") %>
+
+    <body>
+        <!-- THE HEADER TAG PARTIAL -->
+        <%- include("partials/header") %>
+        <main>
+            <!--Signup Form-->
+            <div class="container my-3">
+                <div class="signup bg-info p-3 mt-3">
+                    <h2 class="mt-5">Not signed up yet?</h2>
+                    <p>Register below.</p>
+                    <form action="/auth/create" method="post" class="m-5">
+                        <div class="form-group">
+                            <label for="signupUsernameForm">Create a Username</label>
+                            <input type="text" class="form-control" id="userName"  name="username"  placeholder="Type Username"> 
+                            <small id="usernameHelp" class="form-text text-muted">In order to contribute, please create a username.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordForm">Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                        </div>
+                            <button type="submit" class="btn btn-success" value="create user">Submit</button>
+                        </div>
+                    </form>
+            </div>
+            <!--Sign In Form-->
+            <div class="container my-3">
+                <div class="signin bg-dark p-3">
+                    <h2 class="mt-3 text-white">Sign-in</h2>
+                    <form action="/auth/login" method="post">
+                    <div class="form-group text-white">
+                        <label for="logInUsernameForm">Username</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name = "username" placeholder="Please enter your Username">
+                        <small id="emailHelp" class="form-text text-white">If you've already signed up, enter Username above.</small>
+                    </div>
+                    <div class="form-group text-white">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name = "password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary bg-success">Submit</button><button type="submit" class="btn btn-primary bg-danger ml-3">Log Out</button> 
+                    </div>
+            </div>
+        <!--Contribute Form-->
+        <%- include("partials/contribute") %> 
+            
+        </main>
+        <!-- THE HEAD TAG PARTIAL -->
+        <%- include("partials/footer") %>
+    </body>
+</html>

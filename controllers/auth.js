@@ -47,11 +47,12 @@ const loginSubmit = async (req, res) => {
 
 const logout = (req, res) => {
     req.session.user = undefined
-    res.json({message: "you have logged out"})
+    res.json({message: "You have logged out."})
+    res.redirect('/')
 }
 
 const test = (req, res) => {
-    res.send("you are logged in")
+    res.send("You are logged in.")
 }
 
 const actions = {
