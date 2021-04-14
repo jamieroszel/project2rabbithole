@@ -3,60 +3,62 @@
 ////////////////////////////////
 const router = require("express").Router();
 const User = require("../models/User");
-const Podcast = require("../models/Podcast");
 const auth = require("./authMiddleware");
 
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////
 router.use(auth);
+router.use(async (req, res, next) => {
+  req.user = await User.findById(req.session.user.id);
+  next();
+});
 
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
-
-// Podcast Index
-router.get("/podcasts", async (req, res) => {
-  const podcasts = await Podcast.find({ user: req.session.user.id });
-  console.log(podcasts);
-  res.render("/podcasts", {
+// See all the podcasts
+router.get("/", async (req, res) => {
+  const user = req.user;
+  const podcasts = user.podcasts;
+  res.render("/podcastsindex", {
     podcasts,
   });
 });
 
-// Create Podcast
-router.post("/podcasts", async (req, res) => {
-  req.body.user = req.session.user.id;
-  await Podcast.create(req.body);
-  res.redirect("/podcasts/");
+// Enter a new podcast
+router.post("/", async (req, res) => {
+  const user = req.user;
+  user.podcasts.push(req.body);
+  user.save();
+  res.redirect("/podcastsindex/");
 });
-
 
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const podcast = await Podcast.findOne({ _id: id, user: req.session.user.id });
-  console.log(podcast)
-  if (podcast) {
-    res.render("podcast/show", {
-      podcast,
-    });
-  } else {
-    res.status(400).json({ error: "No Podcast of This ID for this user" });
-  }
+  const index = req.user.podcasts.findIndex((podcast) => `${podcast._id}` === id);
+  const podcast = req.user.podcasts[index];
+  console.log(podcast);
+  res.render("podcasts/show", {
+    podcast,
+  });
 });
 
-// Update Router
 router.put("/:id", async (req, res) => {
-  await Podcast.findByIdAndUpdate(req.params.id, req.body);
-  res.redirect("/podcasts/update");
+  const id = req.params.id;
+  const index = req.user.podcasts.findIndex((podcast) => `${podcast._id}` === id);
+  req.user.podcasts[index].text = req.body.text;
+  req.user.save();
+  res.redirect("/podcastsindex");
 });
 
-// Delete Router
 router.delete("/:id", async (req, res) => {
-  await Podcast.findByIdAndRemove(req.params.id);
+  const id = req.params.id;
+  const index = req.user.podcasts.findIndex((podcast) => `${podcast._id}` === id);
+  req.user.podcasts.splice(index, 1);
+  req.user.save();
   res.redirect("/podcasts");
 });
-
 ///////////////////////////////
 // Export Router
 ////////////////////////////////

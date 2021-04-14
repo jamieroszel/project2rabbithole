@@ -10,11 +10,23 @@
             <h1 class="text-center mt-3">Podcasts index</h1>
             <p><%  %> </p>  <!--discipline ejs goes here-->
             <p><%  %> </p> <!--topic ejs goes here-->
-            <p></p> <!--showTitle ejs goes here-->
-            <p></p> <!--episodeNumber ejs goes here-->
-            <p></p> <!--episode Title ejs goes here-->
-            <p></p> <!--URL ejs goes here-->
+            <p>thing</p> <!--showTitle ejs goes here-->
+            <p>thing</p> <!--episodeNumber ejs goes here-->
+            <p>thing</p> <!--episode Title ejs goes here-->
+            <p>thing</p> <!--URL ejs goes here-->
             <button type="button" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-danger">Delete</button>
+            <br>
+            <main>
+                <h2 class="text-center">Podcasts</h2>
+                <form action="/podcastsindex" method="post">
+                    <input type="text" placeholder="Type episide title here" name="episodeTitle" />
+                    <input type="submit" value="Add Episode Title"/>
+                  </form>
+                <% for (episodeTitle of podcasts) { %> 
+                    <h3>
+                        <%= podcast.episodeTitle %> 
+                    </h3>
+                    <% } %> 
         </body>
 </html>

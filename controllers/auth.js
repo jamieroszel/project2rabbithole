@@ -33,7 +33,7 @@ const loginSubmit = async (req, res) => {
               username: user.username,
               id: user._id,
             };
-            res.redirect("/")
+            res.redirect("/podcastsindex")
           } else {
             res.status(400).json({ error: "Password Does Not Match" });
           }

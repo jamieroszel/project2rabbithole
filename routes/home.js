@@ -3,11 +3,12 @@
 ////////////////////////////////
 const router = require("express").Router()
 const AuthRouter = require("./AuthRouter")
+const PodcastsRouter = require("./podcasts")
 ///////////////////////////////
 // Router Specific Middleware
 ////////////////////////////////
 router.use("/auth", AuthRouter)
-
+router.use("/podcasts", PodcastsRouter)
 ///////////////////////////////
 // Router Routes
 ////////////////////////////////
