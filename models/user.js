@@ -1,11 +1,6 @@
 // Import Schema and Model
 const { Schema, model } = require("../db/connection.js")
 
-// The Podcast Schema
-// const Podcast = new Schema({
-//   text: String,
-// })
-
 // The User Schema
 const UserSchema = new Schema(
   {

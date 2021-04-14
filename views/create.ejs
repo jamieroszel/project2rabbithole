@@ -9,10 +9,9 @@
         <%- include("partials/header") %>
         <form class="m-5 bg-light">
             <fieldset>
-              <h2 class="text-center">Have something to add? Feel free to add below:</h2>
+              <h2 class="text-center">Have something to add?</h2>
               <!-- Discipline Dropdown Menu -->
-              <form action="">
-              <div class="form-group" name = "discipline">
+              <div class="form-group">
                 <select class="custom-select">
                   <option selected="">Please choose a discipline</option>
                   <option value="1">Environment</option>
@@ -28,10 +27,10 @@
                   <option value="12">Technology</option>
                 </select>
               </div>
-            </form>
               <div class="form-group">
                 <select class="custom-select mb-3">
-                    <option selected="">Please choose a topic, or add a new one:</option>
+                    <option selected="">Please choose a topic:</option>
+                    <option value="1">Timber Wars</option>
               </div>
               <!--  -->
               <div class="form-group">
@@ -52,7 +51,7 @@
               </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </fieldset>
-        </form>
+          </form>
         <%- include("partials/footer") %>
     </body>
 </html>

@@ -25,6 +25,11 @@ router.get("/contribute", (req, res) => {
     res.render("contribute")
 })
 
+// Create Router
+router.get("/podcasts/create", (req, res) => {
+    res.render('create');
+})
+
 
 // Dunning Kruger Route
 router.get("/ss/dk", (req, res) => {
@@ -42,9 +47,20 @@ router.get("/auth/create", (req, res) => {
 })
 
 // Environment Router
-router.get("/env", (req, res) => {
-    res.render("env")
+router.get("/enviro", (req, res) => {
+    res.render("enviro")
 })
+
+// Timber Wars Router
+router.get("/timberwars", (req, res) => {
+    res.render("timberwars")
+})
+
+// Podcasts Index Router
+router.get("/podcastsindex", (req, res) => {
+    res.render('podcastsindex');
+})
+
 // Politics Router
 router.get("/pol", (req, res) => {
     res.render("pol")
@@ -96,6 +112,15 @@ router.get("/sports", (req, res) => {
 // Technology Router
 router.get("/tech", (req, res) => {
     res.render("tech")
+})
+
+router.get("/podcasts", (req, res) => {
+    res.render("podcasts")
+})
+
+// 404 Router
+router.use((req, res) => {
+    res.status(404).render('404')
 })
 
 ///////////////////////////////
